@@ -1,2 +1,3 @@
 import Menu from "./Menu";
-export { Menu };
+import NightSwitch from "./NightSwitch";
+export { Menu, NightSwitch };

@@ -1,39 +1,85 @@
+import { useState } from "react";
 import logo from "./logo.svg";
 import "./App.css";
 import { Container, Typo } from "./components/atoms";
 import { PostCard } from "./components/molecules";
 import Menu from "./components/molecules/Menu";
+import { Contact, Home, Login } from "./components/pages";
+import { NightModeProvider } from "./context/NightModeContext";
+
+//1 > Toute l'application doit avoir un NightMode fonctionnel 
+//2 > Aucun composant superieur a l'atom doit etre constitué de StyledComponents
+//3 > il ne doit plus y avoir d'html sur l'application
+
 function App() {
+
+  const [slug, setSlug] = useState("home");
+  const [nightMode, setNightMode] = useState(false)
+  let tableauMenu = [
+    {
+      slug: "home",
+      name: "Home",
+    },
+    {
+      slug: "login",
+      name: "Se Connecter",
+
+    },
+    {
+      slug: "contact",
+      name: "Me contacter",
+
+    },
+    {
+      isOption: true,
+      slug: "nightMode",
+      name: "Switch",
+
+
+    },
+  ];
+
+  const displayPage = () => {
+    switch (slug) {
+      case "login":
+        return <Login />
+        break;
+      case "contact":
+        return <Contact />
+        break;
+
+      case "home":
+      default:
+        return <Home />
+        break;
+    }
+  }
+
+
+  const changePage = (slug) => {
+    setSlug(slug);
+  }
+  const switchNightMode = () => {
+    setNightMode(!nightMode);
+  }
+
   return (
-    <div className="App">
-      <Menu
-        config={[
-          {
-            name: "Home",
-          },
-          {
-            name: "Login",
-          },
-        ]}
-      ></Menu>
-      {/* <Container.Base>
-        <Typo.Title>Hola Que tal las gentes</Typo.Title>
-        <Typo.Paragraph>
-          Hola que tal amigo, me llamo Enrico y hablo espanol como un chico de
-          la cale, no me comer los tacos
-        </Typo.Paragraph>
-      </Container.Base> */}
-      <PostCard title="Salut les amis">
-        J'ai beau m'appeler Benoit et etre français je ne mange pas de baguettes
-      </PostCard>
-      <PostCard title="Hello fews" color="red">
-        Hello everybody i'm english and i'm don't eat some disguting things..
-      </PostCard>
-      <PostCard title="Hola Amigos">
-        Hola que tal amigo, me llamo Enrico y hablo espanol como un chico de la
-        cale, no me comer los tacos
-      </PostCard>
-    </div>
+    <NightModeProvider value={
+      {
+
+        switchNightMode: switchNightMode,
+
+        nightMode: nightMode
+      }
+    }>
+      <div className="App">
+        <Menu
+          changePage={changePage}
+          configs={tableauMenu}
+        ></Menu>
+        {displayPage()}
+      </div>
+    </NightModeProvider>
   );
 }
 

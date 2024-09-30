@@ -1,11 +1,17 @@
 import React from "react";
 import { Button, Container } from "../atoms";
 
-const Menu = ({ config }) => {
+const Menu = ({ configs, changePage }) => {
   return (
     <Container.MenuBar>
-      {config.map((x, i) => {
-        return <Button.Menu key={i}>{x.name}</Button.Menu>;
+      {configs.map((config, i) => {
+
+
+        if (true === config.isOption) {
+          return <Button.NightSwitch></Button.NightSwitch>
+        }
+
+        return <Button.Menu onClick={() => changePage(config.slug)} key={i}>{config.name}</Button.Menu>;
       })}
     </Container.MenuBar>
   );

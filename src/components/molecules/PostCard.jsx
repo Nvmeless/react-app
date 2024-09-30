@@ -10,16 +10,16 @@ const StyledPostCard = styled.div`
   color: ${(props) => (props.color ? props.color : "white")};
 `;
 
-const PostCard = ({ title = "", children, defaultColor = null }) => {
-  const [color, setColor] = useState(defaultColor);
-
+const PostCard = ({ title = "", children, defaultColor = "white", activatedColor = "blue" }) => {
+  const [color, setColor] = useState(false);
+  const changeColor = (e) => {
+    setColor(!color)
+  }
   return (
     <StyledPostCard
-      color={color}
-      onClick={(e) => {
-        console.log(e, "EVENT");
-        setColor("blue");
-      }}
+      color={color ? activatedColor : defaultColor}
+      onClick={
+        changeColor}
     >
       <Container.Base>
         <Typo.Title>{title}</Typo.Title>
