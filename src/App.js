@@ -1,11 +1,13 @@
 import logo from "./logo.svg";
 import "./App.css";
-import { Typo } from "./components/atoms";
+import { Container, Typo } from "./components/atoms";
 function App() {
   return (
     <div className="App">
-      <Typo.Title>Hola Que tal las gentes</Typo.Title>
-      <Typo.Paragraph>Mon super texte</Typo.Paragraph>
+      <Container.Base>
+        <Typo.Title>Hola Que tal las gentes</Typo.Title>
+        <Typo.Paragraph>Hello</Typo.Paragraph>
+      </Container.Base>
     </div>
   );
 }

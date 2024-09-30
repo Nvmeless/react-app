@@ -1,8 +1,7 @@
 import React from "react";
 
-const Paragraph = () => {
-  return <div
-  >Mon super Paragraphe</div>;
+const Paragraph = ({ children }) => {
+  return <div>{children}</div>;
 };
 
 export default Paragraph;

@@ -1,6 +1,6 @@
 import React from "react";
 
-const Title = (props) => {
+const Title = ({ children, ...props }) => {
   return (
     <div
       style={{
@@ -8,7 +8,7 @@ const Title = (props) => {
         fontSize: "3rem",
       }}
     >
-      {props.children}
+      {children}
     </div>
   );
 };
