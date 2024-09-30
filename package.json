@@ -36,5 +36,7 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
-  }
+  },
+  "proxy":"https://sessionserver.mojang.com/session/minecraft/profile/990c20d540474b9fb5d52b1fb9594139"
+  
 }
