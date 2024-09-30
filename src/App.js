@@ -71,7 +71,7 @@ function App() {
 
         nightMode: nightMode,
         colors: {
-          primary: "darkgrey",
+          primary: "#333333",
           secondary: "white"
         }
       }

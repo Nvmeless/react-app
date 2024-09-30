@@ -1,11 +1,12 @@
 import React from 'react'
 import Clock from '../cours/Clock'
+import MinecraftPlayer from '../cours/MinecraftPlayer'
 
 const Home = () => {
     return (
         <div>
             Bienvenue sur la page d'accueil
-            <Clock></Clock>
+            <MinecraftPlayer></MinecraftPlayer>
         </div>
     )
 }

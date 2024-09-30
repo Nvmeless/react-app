@@ -1,3 +1,4 @@
 import Base from "./Base";
 import MenuBar from "./MenuBar";
-export { Base, MenuBar };
+import Card from "./Card";
+export { Base, Card, MenuBar };
