@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { Container, Typo } from "../atoms";
 import { styled } from "styled-components";
 
@@ -10,9 +10,17 @@ const StyledPostCard = styled.div`
   color: ${(props) => (props.color ? props.color : "white")};
 `;
 
-const PostCard = ({ title = "", children, color = null }) => {
+const PostCard = ({ title = "", children, defaultColor = null }) => {
+  const [color, setColor] = useState(defaultColor);
+
   return (
-    <StyledPostCard color={color}>
+    <StyledPostCard
+      color={color}
+      onClick={(e) => {
+        console.log(e, "EVENT");
+        setColor("blue");
+      }}
+    >
       <Container.Base>
         <Typo.Title>{title}</Typo.Title>
         <Typo.Paragraph>{children}</Typo.Paragraph>

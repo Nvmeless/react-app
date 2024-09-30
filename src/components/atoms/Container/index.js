@@ -1,2 +1,3 @@
 import Base from "./Base";
-export { Base };
+import MenuBar from "./MenuBar";
+export { Base, MenuBar };

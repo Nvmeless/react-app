@@ -2,9 +2,20 @@ import logo from "./logo.svg";
 import "./App.css";
 import { Container, Typo } from "./components/atoms";
 import { PostCard } from "./components/molecules";
+import Menu from "./components/molecules/Menu";
 function App() {
   return (
     <div className="App">
+      <Menu
+        config={[
+          {
+            name: "Home",
+          },
+          {
+            name: "Login",
+          },
+        ]}
+      ></Menu>
       {/* <Container.Base>
         <Typo.Title>Hola Que tal las gentes</Typo.Title>
         <Typo.Paragraph>
