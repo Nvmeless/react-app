@@ -69,7 +69,11 @@ function App() {
 
         switchNightMode: switchNightMode,
 
-        nightMode: nightMode
+        nightMode: nightMode,
+        colors: {
+          primary: "darkgrey",
+          secondary: "white"
+        }
       }
     }>
       <div className="App">

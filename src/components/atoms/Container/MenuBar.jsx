@@ -5,8 +5,8 @@ import { NightModeContext } from "../../../context/NightModeContext";
 const StyledMenuBar = styled.div`
   display: flex;
   justify-content: space-around;
-  background-color: ${props => props.nightMode ? 'black' : "white"};
-  color: ${props => props.nightMode ? "white" : 'black'};
+  background-color: ${props => props.nightMode ? props.primary : props.secondary};
+  color: ${props => props.nightMode ? props.secondary : props.primary};
 `;
 
 
@@ -16,7 +16,7 @@ const StyledMenuBar = styled.div`
 const MenuBar = ({ children }) => {
 
   const nightModeContext = useContext(NightModeContext);
-  return <StyledMenuBar nightMode={nightModeContext.nightMode}>{children}</StyledMenuBar>;
+  return <StyledMenuBar primary={nightModeContext.colors.primary} secondary={nightModeContext.colors.secondary} nightMode={nightModeContext.nightMode}>{children}</StyledMenuBar>;
 };
 
 export default MenuBar;
