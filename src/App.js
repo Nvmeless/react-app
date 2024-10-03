@@ -6,6 +6,7 @@ import { PostCard } from "./components/molecules";
 import Menu from "./components/molecules/Menu";
 import { Contact, Home, Login } from "./components/pages";
 import { NightModeProvider } from "./context/NightModeContext";
+import { ThemeProvider } from "styled-components";
 
 //1 > Toute l'application doit avoir un NightMode fonctionnel 
 //2 > Aucun composant superieur a l'atom doit etre constitué de StyledComponents
@@ -64,26 +65,45 @@ function App() {
   }
 
   return (
-    <NightModeProvider value={
+    <ThemeProvider theme={
       {
-
-        switchNightMode: switchNightMode,
-
-        nightMode: nightMode,
         colors: {
-          primary: "#333333",
-          secondary: "white"
+          primary: "blue",
+          secondary: 'white'
+        },
+        fontSize: {
+          title: "2em",
+          subtitle: "3em"
+        },
+        borders: {
+          radiusCard: '25px',
+          pictureRadius: '50%'
         }
       }
     }>
-      <div className="App">
-        <Menu
-          changePage={changePage}
-          configs={tableauMenu}
-        ></Menu>
-        {displayPage()}
-      </div>
-    </NightModeProvider>
+      <NightModeProvider value={
+        {
+
+          switchNightMode: switchNightMode,
+
+          nightMode: nightMode,
+          colors: {
+            primary: "#333333",
+            secondary: "white"
+          }
+        }
+      }>
+        <div className="App">
+          <PostCard></PostCard>
+
+          <Menu
+            changePage={changePage}
+            configs={tableauMenu}
+          ></Menu>
+          {displayPage()}
+        </div>
+      </NightModeProvider>
+    </ThemeProvider>
   );
 }
 
