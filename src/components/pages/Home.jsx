@@ -3,6 +3,8 @@ import Clock from '../cours/Clock'
 import MinecraftPlayer from '../cours/MinecraftPlayer'
 import { Input } from '../atoms'
 import { Todo } from '../cours/Todo'
+import ThreeDFrame from '../cours/ThreeDFrame'
+import Box from '../cours/Box'
 
 const Home = () => {
     return (
@@ -13,7 +15,7 @@ const Home = () => {
             {/* <Input.Text></Input.Text> */}
             <MinecraftPlayer></MinecraftPlayer>
             <Todo></Todo>
-
+            <ThreeDFrame><Box></Box></ThreeDFrame>
         </div>
     )
 }
