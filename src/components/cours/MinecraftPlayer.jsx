@@ -59,7 +59,6 @@ const MinecraftPlayer = () => {
     }, [])
 
     useEffect(() => {
-        console.log(isLoading, data)
 
     }, [isLoading])
     return (

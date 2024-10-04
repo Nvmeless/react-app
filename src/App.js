@@ -7,6 +7,9 @@ import Menu from "./components/molecules/Menu";
 import { Contact, Home, Login } from "./components/pages";
 import { NightModeProvider } from "./context/NightModeContext";
 import { ThemeProvider } from "styled-components";
+import { Todo } from "./components/cours/Todo";
+import { Provider } from "react-redux";
+import { store } from "./store";
 
 //1 > Toute l'application doit avoir un NightMode fonctionnel 
 //2 > Aucun composant superieur a l'atom doit etre constitué de StyledComponents
@@ -65,45 +68,46 @@ function App() {
   }
 
   return (
-    <ThemeProvider theme={
-      {
-        colors: {
-          primary: "blue",
-          secondary: 'white'
-        },
-        fontSize: {
-          title: "2em",
-          subtitle: "3em"
-        },
-        borders: {
-          radiusCard: '25px',
-          pictureRadius: '50%'
-        }
-      }
-    }>
-      <NightModeProvider value={
+    <Provider store={store}>
+      <ThemeProvider theme={
         {
-
-          switchNightMode: switchNightMode,
-
-          nightMode: nightMode,
           colors: {
-            primary: "#333333",
-            secondary: "white"
+            primary: "blue",
+            secondary: 'white'
+          },
+          fontSize: {
+            title: "2em",
+            subtitle: "3em"
+          },
+          borders: {
+            radiusCard: '25px',
+            pictureRadius: '50%'
           }
         }
       }>
-        <div className="App">
-          <PostCard></PostCard>
+        <NightModeProvider value={
+          {
 
-          <Menu
-            changePage={changePage}
-            configs={tableauMenu}
-          ></Menu>
-          {displayPage()}
-        </div>
-      </NightModeProvider>
-    </ThemeProvider>
+            switchNightMode: switchNightMode,
+
+            nightMode: nightMode,
+            colors: {
+              primary: "#333333",
+              secondary: "white"
+            }
+          }
+        }>
+          <div className="App">
+            {/* <PostCard></PostCard> */}
+            <Menu
+              changePage={changePage}
+              configs={tableauMenu}
+            ></Menu>
+            {displayPage()}
+          </div>
+        </NightModeProvider>
+      </ThemeProvider>
+    </Provider>
   );
 }
 

@@ -1,8 +1,9 @@
 import React from 'react'
+import { Todo } from '../cours/Todo'
 
 const Contact = () => {
     return (
-        <div>Contact</div>
+        <Todo></Todo>
     )
 }
 
